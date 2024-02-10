@@ -1,0 +1,20 @@
+<Project>
+    <PropertyGroup>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisMode>All</AnalysisMode>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+        <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference
+            Include="SonarAnalyzer.CSharp"
+            Version="9.19.0.84025"
+            PrivateAssets="all"
+            Condition="$(MSBuildProjectExtension) == '.csproj'" />
+    </ItemGroup>
+</Project>
