@@ -11,7 +11,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Aggregates\" />
       <Folder Include="Entities\" />
     </ItemGroup>
 

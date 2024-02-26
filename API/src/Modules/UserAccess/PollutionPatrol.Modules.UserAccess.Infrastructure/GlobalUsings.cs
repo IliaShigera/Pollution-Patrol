@@ -1,6 +1,9 @@
 // Global using directives
 
 global using System.Reflection;
+global using System.Security.Cryptography;
+global using System.Text;
+global using Isopoh.Cryptography.Argon2;
 global using MediatR;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Design;
@@ -11,6 +14,16 @@ global using PollutionPatrol.BuildingBlocks.Application.Env;
 global using PollutionPatrol.BuildingBlocks.Application.Interfaces;
 global using PollutionPatrol.BuildingBlocks.Domain;
 global using PollutionPatrol.Modules.UserAccess.Application.Contracts;
+global using PollutionPatrol.Modules.UserAccess.Application.Features.Reg.Expiration;
 global using PollutionPatrol.Modules.UserAccess.Application.SeedWork.Command;
 global using PollutionPatrol.Modules.UserAccess.Application.SeedWork.Query;
+global using PollutionPatrol.Modules.UserAccess.Domain.Aggregates.Reg;
+global using PollutionPatrol.Modules.UserAccess.Domain.Contracts;
+global using PollutionPatrol.Modules.UserAccess.Infrastructure.CodeGenerator;
+global using PollutionPatrol.Modules.UserAccess.Infrastructure.Configuration;
+global using PollutionPatrol.Modules.UserAccess.Infrastructure.IdentityUser;
 global using PollutionPatrol.Modules.UserAccess.Infrastructure.Persistence;
+global using PollutionPatrol.Modules.UserAccess.Infrastructure.Persistence.EntityTypeConfiguration;
+global using PollutionPatrol.Modules.UserAccess.Infrastructure.Quartz;
+global using Quartz;
+global using Serilog;

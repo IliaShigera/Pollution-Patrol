@@ -1,24 +1,47 @@
-﻿services:
+﻿# Explanation of environment variables and .env usage:
+# -----------------------------------------------------
+# This file uses environment variables for configuration. 
+# 1. Create a `.env` file (NOT committed to version control) by copying `.env.sample`
+# 2. Fill in the real values for variables in the `.env` file 
+# 3. Docker Compose will automatically load variables from the `.env` file
+# --------------------------------------------------------
+
+services:
     api:
         image: pollutionpatrol.api
         build:
             context: .
             dockerfile: src/API/PollutionPatrol.API/Dockerfile
-            
-        environment:
-            - ASPNETCORE_ENVIRONMENT=Development
-                
         ports:
             - 8080:8080
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - APPLICATION_URI=http://localhost:8080
+
+            - CONNECTION_STRINGS_USER_ACCESS=${UserAccessDbConnection}
+            - CONNECTION_STRINGS_REPORTING=${ReportingDbConnection}
+            - CONNECTION_STRINGS_ADMIN=${AdminDbConnection}
+
+            - DEV_ONLY__USER__PASSWORD_SECRET=${PasswordSecret}
     
     seq:
         image: datalust/seq:latest
         container_name: seq
-        
-        environment:
-            - ACCEPT_EULA=Y
-                
         ports:
             - 5341:5341
             - 8081:80
-            
+        environment:
+            - ACCEPT_EULA=Y
+    
+    database:
+        container_name: postgres
+        image: postgres:latest
+        restart: always
+        ports:
+            - 5432:5432
+        environment:
+            - POSTGRES_DB=${PostgresDb}
+            - POSTGRES_USER=${PostgresUser}
+            - POSTGRES_PASSWORD=${PostgresPassword}
+        volumes:
+            - ./.containers/database:/var/lib/postgresql/data

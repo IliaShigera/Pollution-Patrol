@@ -1,6 +1,7 @@
 // Global using directives
 
 global using System.Diagnostics.CodeAnalysis;
+global using System.Globalization;
 global using FluentValidation;
 global using MediatR;
 global using Microsoft.Extensions.Configuration;

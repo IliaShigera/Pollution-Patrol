@@ -22,8 +22,7 @@ public abstract class Entity
             throw new DomainRuleBrokenException(domainRule);
     }
 
-    protected static async Task CheckRuleAsync(IAsyncDomainRule domainRule,
-        CancellationToken cancellationToken = default)
+    protected static async Task CheckRuleAsync(IAsyncDomainRule domainRule, CancellationToken cancellationToken = default)
     {
         if (await domainRule.IsBrokenAsync(cancellationToken))
             throw new DomainRuleBrokenException(domainRule);

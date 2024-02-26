@@ -28,4 +28,5 @@ namespace PollutionPatrol.Modules.UserAccess.Application.Contracts;
 /// </example>
 public interface IUserAccessRepository : IUnitOfWork
 {
+    DbSet<Registration> Registrations { get; }
 }
