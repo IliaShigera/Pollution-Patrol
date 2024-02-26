@@ -12,6 +12,7 @@ builder.Services.InstallServicesFromAssemblies(
     PollutionPatrol.Modules.UserAccess.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly);
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
 
@@ -26,5 +27,7 @@ if (app.Environment.IsDevelopment())
 app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
