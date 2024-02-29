@@ -1,3 +1,5 @@
+using PollutionPatrol.API.Configuration.DI;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, loggerConfig) =>
@@ -25,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSerilogRequestLogging();
+
+app.UseSelectiveExceptionHandler();
 
 app.UseHttpsRedirection();
 

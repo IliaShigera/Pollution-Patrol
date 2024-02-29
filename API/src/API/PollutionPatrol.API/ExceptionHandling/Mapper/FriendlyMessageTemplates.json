@@ -1,0 +1,36 @@
+{
+  "InternalServerError": [
+    "Oops, something's off. We're on it!",
+    "Looks like we hit a tech snag. Hang tight!",
+    "Hold on, we're sorting out a glitch.",
+    "Uh oh, a bug snuck in. We'll fix it ASAP!",
+    "Our system needs a quick reboot. Back soon!",
+    "Something went wrong on our end. We're working to fix it as quickly as possible.",
+    "We encountered an unexpected technical issue. Please try again later.",
+    "Hold tight! Our system seems to have taken a detour. We're getting it back on track.",
+    "Uh oh, it seems we've misplaced a few wires. We'll rewire things quickly and be back in a jiffy.",
+    "Whoops, something isn't quite right on our end. We're looking into it right away!",
+    "Looks like our servers ran out of coffee. Fresh pot brewing, be back soon!"
+  ],
+  "InvalidRequestException": [
+    "Hmm, your request needs a tweak. See below! {Errors}",
+    "Let's double-check your request. Details: {Errors}",
+    "Seems like there's a mix-up. Check this: {Errors}",
+    "Your request had a few bumps. Fix it up! {Errors}",
+    "Refresh your request with these fixes: {Errors}"
+  ],
+  "EntityNotFoundException": [
+    "Couldn't find that {MissingEntityName}. Try again?",
+    "No sign of your {MissingEntityName}. Double-check!",
+    "Your {MissingEntityName} seems to have vanished...",
+    "Hmm, that {MissingEntityName} is MIA. Search again?",
+    "We're empty-handed. Try a different search."
+  ],
+  "DomainRuleBrokenException": [
+    "Whoops, that won't work. Here's why: {Details}",
+    "Rule alert! Your request needs adjusting: {Details}",
+    "Hmm, there's a rule snag. Details below: {Details}",
+    "That breaks a rule. Check the details: {Details}",
+    "Let's play by the rules. Update this: {Details}"
+  ]
+}

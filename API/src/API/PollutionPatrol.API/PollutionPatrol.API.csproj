@@ -29,4 +29,16 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Remove="Configuration\ExceptionHandling\FriendlyMessageTemplates.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="ExceptionHandling\Mapper\FriendlyMessageTemplates.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Configuration\" />
+    </ItemGroup>
+
 </Project>
