@@ -7,6 +7,7 @@ internal static class ServiceCollectionExtensions
         services.AddMediatR(config =>
             config.RegisterServicesFromAssemblies(
                     Assembly.GetExecutingAssembly(),
+                    BuildingBlocksDescriptor.InfrastructureAssembly,
                     Modules.Admin.Infrastructure.Configuration.ModuleDescriptor.ApplicationAssembly,
                     Modules.Reporting.Infrastructure.Configuration.ModuleDescriptor.ApplicationAssembly,
                     Modules.UserAccess.Infrastructure.Configuration.ModuleDescriptor.ApplicationAssembly)
@@ -16,12 +17,25 @@ internal static class ServiceCollectionExtensions
         return services;
     }
 
-    internal static IServiceCollection InstallServicesFromAssemblies(
-        this IServiceCollection services,
-        IConfiguration configuration,
-        params Assembly[] assemblies)
+    internal static IServiceCollection InstallBuildingBlocks(this IServiceCollection services, IConfiguration configuration)
     {
-        var installers = assemblies
+        var installer = new BuildingBlocksInstaller();
+
+        installer.Install(services, configuration);
+
+        return services;
+    }
+
+    internal static IServiceCollection InstallModules(this IServiceCollection services, IConfiguration configuration)
+    {
+        var moduleAssemblies = new[]
+        {
+            Modules.Admin.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly,
+            Modules.Reporting.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly,
+            Modules.UserAccess.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly
+        };
+
+        var installers = moduleAssemblies
             .SelectMany(a => a.DefinedTypes)
             .Where(IsAssignableToType<IServiceInstaller>)
             .Select(Activator.CreateInstance)

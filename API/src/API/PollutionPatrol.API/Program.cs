@@ -1,5 +1,3 @@
-using PollutionPatrol.API.Configuration.DI;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, loggerConfig) =>
@@ -7,11 +5,9 @@ builder.Host.UseSerilog((context, loggerConfig) =>
 
 builder.Services.AddMediator();
 
-builder.Services.InstallServicesFromAssemblies(
-    builder.Configuration,
-    PollutionPatrol.Modules.Admin.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly,
-    PollutionPatrol.Modules.Reporting.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly,
-    PollutionPatrol.Modules.UserAccess.Infrastructure.Configuration.ModuleDescriptor.InfrastructureAssembly);
+builder.Services.InstallBuildingBlocks(builder.Configuration);
+
+builder.Services.InstallModules(builder.Configuration);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();

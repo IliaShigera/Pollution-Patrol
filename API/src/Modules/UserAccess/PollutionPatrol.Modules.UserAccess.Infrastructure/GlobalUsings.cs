@@ -13,6 +13,7 @@ global using Microsoft.Extensions.DependencyInjection;
 global using PollutionPatrol.BuildingBlocks.Application.Env;
 global using PollutionPatrol.BuildingBlocks.Application.Interfaces;
 global using PollutionPatrol.BuildingBlocks.Domain;
+global using PollutionPatrol.BuildingBlocks.Infrastructure.DomainEventsDispatching;
 global using PollutionPatrol.Modules.UserAccess.Application.Contracts;
 global using PollutionPatrol.Modules.UserAccess.Application.Features.Reg.Expiration;
 global using PollutionPatrol.Modules.UserAccess.Application.SeedWork.Command;

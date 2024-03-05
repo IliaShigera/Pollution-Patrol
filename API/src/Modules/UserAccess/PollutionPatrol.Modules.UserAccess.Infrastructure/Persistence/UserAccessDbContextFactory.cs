@@ -1,3 +1,5 @@
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+
 namespace PollutionPatrol.Modules.UserAccess.Infrastructure.Persistence;
 
 internal sealed class UserAccessDbContextFactory : IDesignTimeDbContextFactory<UserAccessDbContext>
@@ -9,6 +11,6 @@ internal sealed class UserAccessDbContextFactory : IDesignTimeDbContextFactory<U
         var optionsBuilder = new DbContextOptionsBuilder<UserAccessDbContext>();
         optionsBuilder.UseNpgsql(connection);
 
-        return new UserAccessDbContext(optionsBuilder.Options);
+        return new UserAccessDbContext(optionsBuilder.Options, default);
     }
 }
