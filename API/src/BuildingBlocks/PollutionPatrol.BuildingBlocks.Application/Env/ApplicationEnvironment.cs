@@ -47,4 +47,16 @@ public static partial class ApplicationEnvironment
         var uri = GetRequiredEnvironmentVariable(APPLICATION_URI);
         return new Uri(uri);
     }
+
+    public static (string Name, string EmailAddress, string Password, string Secret, int Port, string Host) GetAppEmailConfig()
+    {
+        var name = GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_NAME);
+        var emailAddress = GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_ADDRESS);
+        var password = GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_PASSWORD);
+        var secret = GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_SECRET);
+        var port = int.Parse(GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_PORT));
+        var host = GetRequiredEnvironmentVariable(DEV_ONLY__EMAIL_HOST);
+
+        return (name, emailAddress, password, secret, port, host);
+    }
 }

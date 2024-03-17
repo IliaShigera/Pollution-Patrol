@@ -23,7 +23,14 @@ services:
             - CONNECTION_STRINGS_ADMIN=${AdminDbConnection}
 
             - DEV_ONLY__USER__PASSWORD_SECRET=${PasswordSecret}
-    
+
+            - DEV_ONLY__EMAIL_NAME=${EmailName}
+            - DEV_ONLY__EMAIL_ADDRESS=${EmailAddress}
+            - DEV_ONLY__EMAIL_PASSWORD=${EmailPassword}
+            - DEV_ONLY__EMAIL_SECRET=${EmailSecret}
+            - DEV_ONLY__EMAIL_PORT=${EmailPort}
+            - DEV_ONLY__EMAIL_HOST=${EmailHost}
+                
     seq:
         image: datalust/seq:latest
         container_name: seq

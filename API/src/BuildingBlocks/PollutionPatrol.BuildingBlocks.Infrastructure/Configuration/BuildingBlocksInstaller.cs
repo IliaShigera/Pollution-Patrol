@@ -11,5 +11,6 @@ public sealed class BuildingBlocksInstaller : IServiceInstaller
     private static IEnumerable<IServiceInstaller> GetInnerInstallers()
     {
         yield return new DomainEventsDispatcherInstaller();
+        yield return new EmailSenderInstaller();
     }
 }

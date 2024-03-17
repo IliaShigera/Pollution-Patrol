@@ -17,4 +17,11 @@ public static partial class ApplicationEnvironment
     // mechanism using AWS Secrets Manager or a comparable service.
     // Be mindful of system logging when this variable is in use.
     private const string DEV_ONLY__USER__PASSWORD_SECRET = nameof(DEV_ONLY__USER__PASSWORD_SECRET);
+
+    private const string DEV_ONLY__EMAIL_NAME = nameof(DEV_ONLY__EMAIL_NAME);
+    private const string DEV_ONLY__EMAIL_ADDRESS = nameof(DEV_ONLY__EMAIL_ADDRESS);
+    private const string DEV_ONLY__EMAIL_PASSWORD = nameof(DEV_ONLY__EMAIL_PASSWORD);
+    private const string DEV_ONLY__EMAIL_SECRET = nameof(DEV_ONLY__EMAIL_SECRET);
+    private const string DEV_ONLY__EMAIL_PORT = nameof(DEV_ONLY__EMAIL_PORT);
+    private const string DEV_ONLY__EMAIL_HOST = nameof(DEV_ONLY__EMAIL_HOST);
 }

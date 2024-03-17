@@ -10,4 +10,8 @@
       <ProjectReference Include="..\PollutionPatrol.BuildingBlocks.Application\PollutionPatrol.BuildingBlocks.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MailKit" Version="4.4.0" />
+    </ItemGroup>
+
 </Project>

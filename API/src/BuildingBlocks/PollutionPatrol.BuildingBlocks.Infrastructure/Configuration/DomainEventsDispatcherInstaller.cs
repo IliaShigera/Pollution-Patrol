@@ -1,4 +1,4 @@
-﻿namespace PollutionPatrol.BuildingBlocks.Infrastructure.DomainEventsDispatching;
+﻿namespace PollutionPatrol.BuildingBlocks.Infrastructure.Configuration;
 
 internal sealed class DomainEventsDispatcherInstaller : IServiceInstaller
 {
