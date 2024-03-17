@@ -1,6 +1,6 @@
 ﻿namespace PollutionPatrol.BuildingBlocks.Infrastructure.Configuration;
 
-internal class EmailSenderInstaller : IServiceInstaller
+internal sealed class EmailSenderInstaller : IServiceInstaller
 {
     public void Install(IServiceCollection services, IConfiguration configuration)
     {
