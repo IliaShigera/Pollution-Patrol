@@ -18,6 +18,7 @@ global using PollutionPatrol.BuildingBlocks.Infrastructure.Configuration;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.DomainEventsDispatching;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.EmailSending;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.EmbeddedResources;
+global using PollutionPatrol.BuildingBlocks.Infrastructure.Providers;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.Exceptions;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.ResourceManager;

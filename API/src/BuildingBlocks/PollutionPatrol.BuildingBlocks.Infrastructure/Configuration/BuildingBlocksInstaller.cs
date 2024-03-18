@@ -13,5 +13,6 @@ public sealed class BuildingBlocksInstaller : IServiceInstaller
         yield return new DomainEventsDispatcherInstaller();
         yield return new EmailSenderInstaller();
         yield return new TemplateEngineInstaller();
+        yield return new LinkProviderInstaller();
     }
 }
