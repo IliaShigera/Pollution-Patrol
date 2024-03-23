@@ -3,18 +3,22 @@
 /// <summary>
 /// Provides a simple template engine for rendering templates with models.
 /// </summary>
-internal sealed class PlaceholderTemplateEngine : ITemplateEngine
+internal sealed class EmailTemplateEngine : ITemplateEngine
 {
+    private const string Layout = "_layout.html";
+    private const string MainTag = "<main class=\"content\">";
+
+
     /// <summary>
     /// The resource template manager used to load templates.
     /// </summary>
     private readonly IResourceTemplateManager _resourceTemplateManager;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="PlaceholderTemplateEngine"/> class.
+    /// Initializes a new instance of the <see cref="EmailTemplateEngine"/> class.
     /// </summary>
     /// <param name="resourceTemplateManager">The template manager for resolving templates.</param>
-    public PlaceholderTemplateEngine(IResourceTemplateManager resourceTemplateManager)
+    public EmailTemplateEngine(IResourceTemplateManager resourceTemplateManager)
     {
         _resourceTemplateManager = resourceTemplateManager;
     }
@@ -28,18 +32,24 @@ internal sealed class PlaceholderTemplateEngine : ITemplateEngine
     /// <returns>The rendered content.</returns>
     public string RenderTemplate<T>(string templateName, T model) where T : class
     {
-        var templateSource = _resourceTemplateManager.Resolve(templateName);
-        var template = templateSource.Content;
-
+        var layout = _resourceTemplateManager.Resolve(Layout).Content;
+        var template = _resourceTemplateManager.Resolve(templateName).Content;
+        var mainContentIndex = layout.IndexOf(MainTag, StringComparison.OrdinalIgnoreCase) + MainTag.Length;
+        
+        // merge template with layout
+        var builder = new StringBuilder(layout);
+        builder.Insert(mainContentIndex, template);
+        
+        // replace place holders 
         var properties = model.GetType().GetProperties();
 
         foreach (var property in properties)
         {
             var token = $"{{{{{property.Name}}}}}";
             var value = property.GetValue(model)?.ToString();
-            template = templateSource.Content.Replace(token, value ?? "");
+            builder.Replace(token, value ?? "");
         }
 
-        return template;
+        return builder.ToString();
     }
 }

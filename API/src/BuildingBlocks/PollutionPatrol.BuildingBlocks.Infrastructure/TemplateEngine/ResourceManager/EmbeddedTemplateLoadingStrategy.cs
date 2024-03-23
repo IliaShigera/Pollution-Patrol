@@ -1,4 +1,6 @@
-﻿namespace PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.ResourceManager;
+﻿using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.EmbeddedResources;
+
+namespace PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.ResourceManager;
 
 internal sealed class EmbeddedTemplateLoadingStrategy : ITemplateLoadingStrategy
 {
@@ -6,7 +8,7 @@ internal sealed class EmbeddedTemplateLoadingStrategy : ITemplateLoadingStrategy
 
     public ILoadedTemplate LoadTemplate(string templateName)
     {
-        using var stream = RootType.Assembly.GetManifestResourceStream(templateName);
+        using var stream = RootType.Assembly.GetManifestResourceStream($"{RootType.Namespace}.{templateName }");
         if (stream == null)
             throw new TemplateLoadingException(
                 string.Format("Couldn't load resource '{0}.{1}' from assembly {2}",

@@ -6,6 +6,6 @@ internal sealed class TemplateEngineInstaller : IServiceInstaller
     {
         services.AddScoped<ITemplateLoadingStrategy, EmbeddedTemplateLoadingStrategy>();
         services.AddScoped<IResourceTemplateManager, EmbeddedResourceTemplateManager>();
-        services.AddScoped<ITemplateEngine, PlaceholderTemplateEngine>();
+        services.AddScoped<ITemplateEngine, EmailTemplateEngine>();
     }
 }

@@ -11,7 +11,7 @@ internal sealed class EmbeddedResourceTemplateManager : IResourceTemplateManager
     /// Initializes a new instance of the <see cref="EmbeddedResourceTemplateManager"/> class.
     /// </summary>
     /// <param name="strategy">The strategy to use for loading templates.</param>
-    internal EmbeddedResourceTemplateManager(ITemplateLoadingStrategy strategy)
+    public EmbeddedResourceTemplateManager(ITemplateLoadingStrategy strategy)
     {
         _strategy = strategy;
     }

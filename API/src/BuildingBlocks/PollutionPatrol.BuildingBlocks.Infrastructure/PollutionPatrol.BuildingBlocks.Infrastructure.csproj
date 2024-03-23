@@ -13,6 +13,19 @@
     <ItemGroup>
       <PackageReference Include="MailKit" Version="4.4.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.0" />
+      <PackageReference Include="PreMailer.Net" Version="2.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="EmbeddedResources\registration_expired_template.html" />
+      <None Remove="EmbeddedResources\verify_registration_email_template.html" />
+      <None Remove="EmbeddedResources\_layout.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="TemplateEngine\EmbeddedResources\registration_expired_template.html" />
+      <EmbeddedResource Include="TemplateEngine\EmbeddedResources\verify_registration_email_template.html" />
+      <EmbeddedResource Include="TemplateEngine\EmbeddedResources\_layout.html" />
     </ItemGroup>
 
 </Project>

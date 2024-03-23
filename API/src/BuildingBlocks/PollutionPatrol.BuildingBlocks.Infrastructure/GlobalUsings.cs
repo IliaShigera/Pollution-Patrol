@@ -1,6 +1,7 @@
 ﻿// Global using directives
 
 global using System.Reflection;
+global using System.Text;
 global using MailKit.Net.Smtp;
 global using MediatR;
 global using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,6 @@ global using PollutionPatrol.BuildingBlocks.Domain;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.Configuration;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.DomainEventsDispatching;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.EmailSending;
-global using PollutionPatrol.BuildingBlocks.Infrastructure.EmbeddedResources;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.Providers;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine;
 global using PollutionPatrol.BuildingBlocks.Infrastructure.TemplateEngine.Exceptions;
